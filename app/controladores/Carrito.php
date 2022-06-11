@@ -36,8 +36,15 @@ class Carrito extends Controladorbase{
 
   public function agregaProducto($idProducto, $idUsuario)
   {
-    print $idProducto.", ".$idUsuario;
+    $errores = array();
+    if ($this->modelo->verificaProducto($idProducto, $idUsuario)==false) {
+      //Añadir el registro
+      if ($this->modelo->agregaProducto($idProducto, $idUsuario)==false) {
+        array_push($errores,"Error al insertar el producto al carrito");
+      }
+    }
   }
-
+  //Caratula
+  //$this->caratula();
 }
 ?>
