@@ -95,5 +95,19 @@ class Carrito extends Controladorbase{
       $this->vista("checkoutVista",$datos);
     }
   }
+  public function formaPago($value='')
+  {
+    $datos=[
+        "titulo" => "Carrito | Forma de pago",
+        "menu" => true
+      ];
+      $this->vista("formaPagoVista",$datos);
+  }
+
+  public function verificar()
+  {
+    print "verificar";
+    var_dump($_POST);
+  }
 }
 ?>
