@@ -10,7 +10,7 @@ class Carrito extends Controladorbase{
     $this->modelo = $this->modelo("CarritoModelo");
   }
 
-  function caratula(){
+  function caratula($errores=[]){
     $sesion = new Sesion();
     if ($sesion->getLogin()) {
       //
@@ -27,6 +27,7 @@ class Carrito extends Controladorbase{
         "titulo" => "Bienvenid@ a nuestra tienda",
         "data" => $data,
         "idUsuario" => $idUsuario,
+        "errores" => $errores,
         "menu" => true
       ];
       $this->vista("carritoVista",$datos);
@@ -45,7 +46,24 @@ class Carrito extends Controladorbase{
       }
     }
     //Caratula
-    $this->caratula();
+    $this->caratula($errores);
+  }
+
+  public function actualiza()
+  {
+    if (isset($_POST["num"]) && isset($_POST["idUsuario"])) {
+      $errores = array();
+      $num = $_POST["num"];
+      $idUsuario = $_POST["idUsuario"];
+      for ($i=0; $i < $num ; $i++) { 
+        $idProducto = $_POST["i".$i];
+        $cantidad = $_POST["c".$i];
+        if (!$this->modelo->actualiza($idUsuario, $idProducto, $cantidad)) {
+          array_push($errores, "Error al actualizar el producto ".$idProducto);
+        }
+      }
+      $this->caratula($errores);
+    }
   }
   
 }
