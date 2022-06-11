@@ -2,7 +2,7 @@
 /**
  * Controlador SobreNosotros
  */
-class SobreMi extends Controladorbase{
+class SobreNosotros extends Controladorbase{
   private $modelo;
 
   function __construct(){}
