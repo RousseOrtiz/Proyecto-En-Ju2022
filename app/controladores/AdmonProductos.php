@@ -285,6 +285,11 @@ class AdmonProductos extends Controladorbase
       return $this->modelo->getMasVendidos();
     }
 
+    public function getNuevos()
+    {
+      return $this->modelo->getNuevos();
+    }
+
   public function producto($id='')
     {
     //Leemos los datos del registro del id

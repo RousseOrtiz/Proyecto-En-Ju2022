@@ -18,9 +18,14 @@ class Tienda extends Controladorbase{
       //
       $data = $this->getMasVendidos();
       //
+      //Leer los productos nuevos
+      //
+      $nuevos = $this->getNuevos();
+      //
       $datos = [
         "titulo" => "Bienvenid@ a The Rousse Clothing Store",
         "data" => $data,
+        "nuevos"=>$nuevos,
         "menu" => true
       ];
       $this->vista("tiendaVista",$datos);
@@ -47,6 +52,14 @@ class Tienda extends Controladorbase{
     unset($productos);
     return $data;
   }
-
+  public function getNuevos()
+  {
+    $data = array();
+    require_once "AdmonProductos.php";
+    $productos = new AdmonProductos();
+    $data = $productos->getNuevos();
+    unset($productos);
+    return $data;
+  }
 }
 ?>
