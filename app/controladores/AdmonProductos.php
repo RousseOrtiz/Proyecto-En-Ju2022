@@ -295,7 +295,9 @@ class AdmonProductos extends Controladorbase
     //Leemos los datos del registro del id
     $data = $this->modelo->getProductoId($id);
     //
-    //Llamamos a la vista del producto
+    //Enviamos el id del usuario
+    $sesion = new Sesion();
+    $idUsuario = $_SESSION["usuario"]["id"];
     //
     //Vista Alta
     $datos = [
@@ -304,6 +306,7 @@ class AdmonProductos extends Controladorbase
       "menu" => true,
       "admon" => false,
       "regresa"=> $regresa,
+      "idUsuario" => $idUsuario,
       "errores" => [],
       "data" => $data
     ];
