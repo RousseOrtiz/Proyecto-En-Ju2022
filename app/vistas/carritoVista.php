@@ -6,7 +6,7 @@ $verifica = false;
 $subtotal = 0;
 $envio = 0;
 $descuento = 0;
-$idUsuarrio = $datos["idUsuario"];
+$idUsuario = $datos["idUsuario"];
 //
 print "<h2 class='text-center'>Carrito de compras</h2>";
 print "<form action='".RUTA."carrito/actualiza' method='POST'>";
