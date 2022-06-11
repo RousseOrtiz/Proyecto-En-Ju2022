@@ -73,6 +73,22 @@ class Carrito extends Controladorbase{
     }
     $this->caratula($errores);
   }
+
+  public function checkout()
+  {
+    $sesion = new Sesion();
+    if (!$sesion->getLogin()) {
+      # code...
+    } else {
+      $datos=[
+        "titulo" => "Carrito | Checkout",
+        "menu" => true
+      ];
+      $this->vista("checkoutVista",$datos);
+    }
+    
+  }
+
   
 }
 ?>
