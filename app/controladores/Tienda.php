@@ -21,7 +21,7 @@ class Tienda extends Controladorbase{
       //Leer los productos nuevos
       //
       $nuevos = $this->getNuevos();
-      //
+
       $datos = [
         "titulo" => "Bienvenid@ a The Rousse Clothing Store",
         "data" => $data,
