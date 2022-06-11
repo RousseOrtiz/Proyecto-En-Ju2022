@@ -1,13 +1,13 @@
 <?php
 /**
- * Controlador Libros
+ * Controlador Ropa
  */
-class Libros extends Controladorbase{
+class Ropa extends Controladorbase{
   private $modelo;
 
   function __construct()
   {
-    $this->modelo = $this->modelo("LibrosModelo");
+    $this->modelo = $this->modelo("RopaModelo");
   }
 
   function caratula(){
@@ -16,23 +16,23 @@ class Libros extends Controladorbase{
       //
       //Leer los productos mas vendidos
       //
-      $data = $this->getLibros();
+      $data = $this->getRopa();
       //
       $datos = [
-        "titulo" => "Libros",
-        "activo" => "libros",
+        "titulo" => "Ropa",
+        "activo" => "ropa",
         "data" => $data,
         "menu" => true
       ];
-      $this->vista("librosVista",$datos);
+      $this->vista("ropaVista",$datos);
     } else {
       header("location:".RUTA);
     }
   }
 
-  public function getLibros()
+  public function getRopa()
   {
-    return $this->modelo->getLibros();
+    return $this->modelo->getRopa();
   }
 }
 ?>

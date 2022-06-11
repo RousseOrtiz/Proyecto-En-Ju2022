@@ -83,7 +83,7 @@ class AdmonProductos extends Controladorbase
       $nuevo = ($nuevo=="")?"0":"1";
       //
       $status = $_POST['status'] ?? "";
-      //Libros
+      //Ropa
       $talla = Valida::cadena($_POST['talla'] ?? "");
       //Cursos
       $publico = Valida::cadena($_POST['publico'] ?? "");
