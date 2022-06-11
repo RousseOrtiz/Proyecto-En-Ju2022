@@ -33,7 +33,24 @@ class CarritoModelo{
     $sql.= "fecha=(NOW())";
     //
     return $this->db->queryNoSelect($sql);
-    return count($r);
+  }
+  public function getCarrito($idUsuario)
+  {
+    $sql = "SELECT c.idUsuario as usuario, ";
+    $sql.= "c.idProducto as producto, ";
+    $sql.= "c.cantidad as cantidad, ";
+    $sql.= "c.envio as envio, ";
+    $sql.= "c.descuento as descuento, ";
+    $sql.= "p.precio as precio, ";
+    $sql.= "p.imagen as imagen, ";
+    $sql.= "p.descripcion as descripcion, ";
+    $sql.= "p.nombre as nombre ";
+    $sql.= "FROM carrito as c, productos as p ";
+    $sql.= "WHERE idUsuario='".$idUsuario."' AND ";
+    $sql.= "estado=0 AND ";
+    $sql.= "c.idProducto=p.id";
+    //
+    return $this->db->querySelect($sql);
   }
 }
 ?>

@@ -14,21 +14,22 @@ class Carrito extends Controladorbase{
     $sesion = new Sesion();
     if ($sesion->getLogin()) {
       //
-      //Leer los productos mas vendidos
+      //Recuperamos el id del usuario
       //
-      //$data = $this->getMasVendidos();
+      $idUsuario = $_SESSION["usuario"]["id"];
       //
-      //Leer los productos nuevos
+      //Leer los productos del carrito
       //
-      //$nuevos = $this->getNuevos();
+      $data = $this->modelo->getCarrito($idUsuario);
+      //var_dump($data);
       //
       $datos = [
         "titulo" => "Bienvenid@ a nuestra tienda",
         "data" => $data,
-        "nuevos" => $nuevos,
+        "idUsuario" => $idUsuario,
         "menu" => true
       ];
-      $this->vista("tiendaVista",$datos);
+      $this->vista("carritoVista",$datos);
     } else {
       header("location:".RUTA);
     }
@@ -43,8 +44,9 @@ class Carrito extends Controladorbase{
         array_push($errores,"Error al insertar el producto al carrito");
       }
     }
+    //Caratula
+    $this->caratula();
   }
-  //Caratula
-  //$this->caratula();
+  
 }
 ?>
