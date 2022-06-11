@@ -43,9 +43,23 @@
       //
       print "<ul class='nav navbar-nav navbar-right'>";
       //
+      
       print "<li class='nav-item'>";
       print "<a href='".RUTA."tienda/salir' class='nav-link'>Salir</a>";
       print "</li>";
+      print "</ul>";
+      //
+      //Formulario lado derecho
+      //
+      print "<ul class='nav navbar-nav navbar-right'>";
+      //
+      //
+      ?>
+      <form action="<?php print RUTA; ?>buscar/producto" class="form-inline"  method="POST">
+        <input type="text" name="buscar" id="buscar" class="form-control" size="20" placeholder="Buscar un producto">
+        <button type="submit" class="btn btn-dark">ir</button>
+      </form>
+      <?php
       print "</ul>";
     }
     if(isset($datos["admon"])){
