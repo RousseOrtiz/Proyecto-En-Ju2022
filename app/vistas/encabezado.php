@@ -46,10 +46,7 @@
       print "<ul class='nav navbar-nav navbar-right'>";
       //
       
-      print "<li class='nav-item'>";
-      print "<a href='".RUTA."tienda/salir' class='nav-link'>Salir</a>";
-      print "</li>";
-      print "</ul>";
+     
       //
       //Formulario lado derecho
       //
@@ -63,7 +60,11 @@
         print "</a>";
         print "</li>";
       }
-
+      //salir
+      print "<li class='nav-item'>";
+      print "<a href='".RUTA."tienda/salir' class='nav-link'>Salir</a>";
+      print "</li>";
+      print "</ul>";
      //
      print "<li class='nav-item'>";
      print "</li>";
