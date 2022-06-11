@@ -65,7 +65,7 @@
 
     <div id="libro">
       <div class="form-group text-left">
-      <input type="text" name="talla" class="form-control" required
+      <input type="text" name="talla" class="form-control"
       placeholder="Escribe la talla"
       value="<?php 
       print isset($datos['data']['talla'])?$datos['data']['talla']:''; 

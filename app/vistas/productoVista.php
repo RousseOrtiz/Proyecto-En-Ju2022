@@ -11,7 +11,7 @@ if($datos["data"]["tipo"]==1){
     print "<p>".$datos["data"]["publico"]."</p>";
   
     print "<h4>Objetivos:</h4>";
-    print "<p>".$datos["data"]["objetivos"]."</p>";
+    print "<p>".$datos["data"]["objetivo"]."</p>";
   
     print "<h4>Precio (MXN):</h4>";
     print "<p>$".number_format($datos["data"]["precio"],2)."</p>";

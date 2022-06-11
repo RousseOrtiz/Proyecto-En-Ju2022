@@ -56,7 +56,7 @@ class AdmonProductos extends Controladorbase
     if ($_SERVER['REQUEST_METHOD']=="POST") {
       //Recibimos la información PHP7 isset()?valor1:valor2 => valor1 ?? valor2
       //si existe id es una modificación, si no existe es una alta
-      $id = $_POST['id'] ?? "";
+      $id = trim($_POST['id'] ?? "");
       //
       $tipo = $_POST['tipo'] ?? "";
       $nombre = Valida::cadena($_POST['nombre'] ?? "");
@@ -87,7 +87,7 @@ class AdmonProductos extends Controladorbase
       $talla = Valida::cadena($_POST['talla'] ?? "");
       //Cursos
       $publico = Valida::cadena($_POST['publico'] ?? "");
-      $objetivo =Valida::cadena($_POST['objetivos'] ?? "");
+      $objetivo =Valida::cadena($_POST['objetivo'] ?? "");
       $necesario = Valida::cadena($_POST['necesario'] ?? "");
 
       //Validamos la información
