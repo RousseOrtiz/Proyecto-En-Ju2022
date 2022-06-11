@@ -9,7 +9,7 @@
               }
               print "<div class='card pt-2 col-sm-3'>";
               print "<img src='img/".$datos['data'][$i]["imagen"]."' ";
-              print "class='img-responsive' style='width:100%; height:140px;' ";
+              print "class='img-responsive' style='width:100%; height:100px;' ";
               print "alt='".$datos['data'][$i]["nombre"]."'/>";
               print "<p><a href='".RUTA."admonProductos/producto/";
               print $datos['data'][$i]["id"]."/cursos'>";

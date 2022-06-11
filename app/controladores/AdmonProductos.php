@@ -290,7 +290,7 @@ class AdmonProductos extends Controladorbase
       return $this->modelo->getNuevos();
     }
 
-  public function producto($id='')
+  public function producto($id='',$regresa='')
     {
     //Leemos los datos del registro del id
     $data = $this->modelo->getProductoId($id);
@@ -303,6 +303,7 @@ class AdmonProductos extends Controladorbase
       "subtitulo" => $data["nombre"],
       "menu" => true,
       "admon" => false,
+      "regresa"=> $regresa,
       "errores" => [],
       "data" => $data
     ];

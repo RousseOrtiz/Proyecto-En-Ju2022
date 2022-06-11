@@ -28,6 +28,6 @@ if($datos["data"]["tipo"]==1){
     print "<h4>Descripción:</h4>";
     print "<p>".html_entity_decode($datos["data"]["descripcion"])."</p>";
   }
-  
-  print "<a href='".RUTA."tienda' class='btn btn-success'/>Regresa</a>";
+  $regresa = ($datos["regresa"]=="")? "tienda" : $datos["regresa"];
+  print "<a href='".RUTA.$regresa."' class='btn btn-success'/>Regresa</a>";
   include_once("piepagina.php"); ?>
