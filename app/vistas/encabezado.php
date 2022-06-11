@@ -55,6 +55,15 @@
       //
       print "<ul class='nav navbar-nav navbar-right'>";
       //
+
+      if (isset($_SESSION["carrito"]) && $_SESSION["carrito"] > 0) {
+        print "<li class='nav-item'>";
+        print "<a href='".RUTA."carrito/caratula' class='nav-link'>";
+        print "Carrito: $".number_format($_SESSION["carrito"],2);
+        print "</a>";
+        print "</li>";
+      }
+
      //
      print "<li class='nav-item'>";
      print "</li>";
