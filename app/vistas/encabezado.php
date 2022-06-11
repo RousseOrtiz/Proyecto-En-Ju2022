@@ -10,7 +10,9 @@
 </head>
 <body>
   <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
-    <a href="<?php print RUTA."tienda"; ?>" class="navbar-brand">RousseStore</a>
+    <a class="navbar-brand" href="<?php print RUTA."tienda"; ?>" class="navbar-brand">
+      <img class="logo me-5 logo_img" class="" src="img/logo1.png" alt="RousseStore">
+    </a>
     <div class="collapse navbar-collapse" id="menu">
     <?php if ($datos["menu"]) {
       print "<ul class='navbar-nav mr-auto mt-2 mt-lg-0'>";
