@@ -65,6 +65,14 @@ class Carrito extends Controladorbase{
       $this->caratula($errores);
     }
   }
+  public function borrar($idProducto, $idUsuario)
+  {
+    $errores = array();
+    if (!$this->modelo->borrar($idProducto, $idUsuario)) {
+      array_push($errores, "Error al borrar el registro del carrito");
+    }
+    $this->caratula($errores);
+  }
   
 }
 ?>
