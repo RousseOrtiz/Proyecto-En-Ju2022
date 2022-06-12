@@ -50,6 +50,6 @@
   </table>
   
 </div><!--card-->
-<a href="<?php print RUTA; ?>admonProductos/alta" class="btn btn-success">
+<a href="<?php print RUTA; ?>carrito/grafica" class="btn btn-success">
   Gráfica de ventas por día</a>
 <?php include_once("piepagina.php"); ?>

@@ -196,7 +196,7 @@ class Carrito extends Controladorbase{
       "menu" => false,
       "admon" => true
     ];
-    $this->vista("admonVentasGraficaVista",$datos);
+    $this->vista("admonVentasGrafica",$datos);
   }
 
 }
