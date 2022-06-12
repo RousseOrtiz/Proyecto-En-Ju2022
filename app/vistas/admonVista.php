@@ -1,6 +1,9 @@
 <?php include_once("encabezado.php"); ?>
 <h1 class="text-center">Módulo administrativo</h1>
 <div class="card p-4 bg-light">
+    <?php
+      print "<img src='img/login.png' class='rounded mx-auto d-block' height'200' width='220'/>";
+      ?>
   <form action="<?php print RUTA; ?>admon/verifica/" method="POST">
     <div class="form-group text-left">
       <input type="text" name="usuario" class="form-control"
