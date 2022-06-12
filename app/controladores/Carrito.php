@@ -159,6 +159,7 @@ class Carrito extends Controladorbase{
       $this->vista("mensajeVista",$datos);
     }
   }
+
   public function ventas()
   {
     $data = $this->modelo->ventas();
@@ -167,9 +168,22 @@ class Carrito extends Controladorbase{
       "titulo" => "Ventas",
       "data" => $data,
       "menu" => false,
-      "admon"=> true
+      "admon" => true
     ];
     $this->vista("admonVentasVista",$datos);
+  }
+
+  public function detalle($fecha, $idUsuario)
+  {
+    $data = $this->modelo->detalle($fecha,$idUsuario);
+    //
+    $datos=[
+      "titulo" => "Ventas Detalle",
+      "data" => $data,
+      "menu" => false,
+      "admon" => true
+    ];
+    $this->vista("admonVentasDetalleVista",$datos);
   }
 }
 ?>

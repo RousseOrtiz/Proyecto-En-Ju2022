@@ -34,6 +34,7 @@ class CarritoModelo{
     //
     return $this->db->queryNoSelect($sql);
   }
+
   public function getCarrito($idUsuario)
   {
     $sql = "SELECT c.idUsuario as usuario, ";
@@ -52,6 +53,7 @@ class CarritoModelo{
     //
     return $this->db->querySelect($sql);
   }
+
   public function actualiza($idUsuario, $idProducto, $cantidad)
   {
     $sql = "UPDATE carrito ";
@@ -67,6 +69,7 @@ class CarritoModelo{
     $sql.= "idProducto=".$idProducto;
     return $this->db->queryNoSelect($sql);
   }
+
   public function cierraCarrito($idUsuario,$estado)
   {
     $sql = "UPDATE carrito ";
@@ -76,6 +79,7 @@ class CarritoModelo{
     $sql.= "estado=0";
     return $this->db->queryNoSelect($sql);
   }
+
   public function ventas()
   {
     $sql = "SELECT SUM(p.precio*c.cantidad) as costo, ";
@@ -89,5 +93,30 @@ class CarritoModelo{
     return $this->db->querySelect($sql);
   }
 
+  public function detalle($fecha, $idUsuario)
+  {
+    $sql = "SELECT p.precio as precio, c.cantidad as cantidad, ";
+    $sql.= "c.descuento as descuento, ";
+    $sql.= "c.envio as envio, ";
+    $sql.= "c.fecha as fecha, ";
+    $sql.= "p.nombre as nombre ";
+    $sql.= "FROM carrito as c, productos as p ";
+    $sql.= "WHERE c.idProducto=p.id AND ";
+    $sql.= "c.estado=1 AND ";
+    $sql.= "DATE(c.fecha)='".$fecha."' AND ";
+    $sql.= "c.idUsuario=".$idUsuario;
+    return $this->db->querySelect($sql);
+  }
+/*
+  public function ventasxdia()
+  {
+    $sql = "SELECT SUM(p.precio * c.cantidad) - ";
+    $sql.= "SUM(c.descuento) + SUM(c.envio) as venta, ";
+    $sql.= "c.fecha as fecha ";
+    $sql.= "FROM carrito as c, productos as p ";
+    $sql.= "WHERE c.idProducto=p.id AND c.estado=1 ";
+    $sql.= "GROUP BY DATE(c.fecha)";
+    return $this->db->querySelect($sql);
+  }*/
 }
 ?>
