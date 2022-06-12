@@ -67,5 +67,15 @@ class CarritoModelo{
     $sql.= "idProducto=".$idProducto;
     return $this->db->queryNoSelect($sql);
   }
+  public function cierraCarrito($idUsuario,$estado)
+  {
+    $sql = "UPDATE carrito ";
+    $sql.= "SET estado=".$estado.", ";
+    $sql.= "fecha=(NOW()) ";
+    $sql.= "WHERE idUsuario=".$idUsuario." AND ";
+    $sql.= "estado=0";
+    return $this->db->queryNoSelect($sql);
+  }
+
 }
 ?>

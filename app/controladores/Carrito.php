@@ -21,7 +21,6 @@ class Carrito extends Controladorbase{
       //Leer los productos del carrito
       //
       $data = $this->modelo->getCarrito($idUsuario);
-      //var_dump($data);
       //
       $datos = [
         "titulo" => "Bienvenid@ a nuestra tienda",
@@ -65,6 +64,7 @@ class Carrito extends Controladorbase{
       $this->caratula($errores);
     }
   }
+  
   public function borrar($idProducto, $idUsuario)
   {
     $errores = array();
@@ -95,6 +95,7 @@ class Carrito extends Controladorbase{
       $this->vista("checkoutVista",$datos);
     }
   }
+
   public function formaPago($value='')
   {
     $datos=[
@@ -106,8 +107,57 @@ class Carrito extends Controladorbase{
 
   public function verificar()
   {
-    print "verificar";
-    var_dump($_POST);
+   $sesion = new Sesion();
+    //
+    //Recuperamos el id del usuario
+    //
+    $idUsuario = $_SESSION["usuario"]["id"];
+    //
+    //Leer los productos del carrito
+    //
+    $carrito = $this->modelo->getCarrito($idUsuario);
+    //
+    $pago = $_POST["pago"]??"";
+    $data = $_SESSION["usuario"];
+    $datos=[
+      "titulo" => "Carrito | Verificar datos",
+      "pago" => $pago,
+      "data" => $data,
+      "carrito" => $carrito,
+      "menu" => true
+    ];
+    $this->vista("verificaVista",$datos);
+  }
+
+  public function gracias()
+  {
+    $sesion = new Sesion();
+    $data = $_SESSION["usuario"];
+    $idUsuario = $_SESSION["usuario"]["id"];
+    //
+    if($carrito = $this->modelo->cierraCarrito($idUsuario,1)){
+      //
+      $datos=[
+        "titulo" => "Carrito | Gracias por su compra",
+        "data" => $data,
+        "menu" => true
+      ];
+      $this->vista("graciasVista",$datos);
+    } else {
+      $datos = [
+      "titulo" => "Error la actualización del carrito",
+      "menu" => true,
+      "errores" => [],
+      "data" => [],
+      "subtitulo" => "Error la actualización del carrito",
+      "texto" => "Existió un problema al actualizar el estado del carrito. Prueba por favor más tarde o comuníquese a nuestro servicio de soporte técnico.",
+      "color" => "alert-danger",
+      "url" => "tienda",
+      "colorBoton" => "btn-danger",
+      "textoBoton" => "Regresar"
+      ];
+      $this->vista("mensajeVista",$datos);
+    }
   }
 }
 ?>

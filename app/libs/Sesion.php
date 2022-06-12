@@ -15,8 +15,10 @@ class Sesion{
       //
       //Calculo del total del carrito
       //
-      $idUsuario = $_SESSION["usuario"]["id"];
-      $_SESSION["carrito"] = $this->totalCarrito($idUsuario)??0;
+      if (isset($_SESSION["usuario"]["id"])) {
+        $idUsuario = $_SESSION["usuario"]["id"];
+        $_SESSION["carrito"] = $this->totalCarrito($idUsuario)??0;
+      } 
       //
     } else {
       unset($this->usuario);
@@ -59,7 +61,6 @@ class Sesion{
     $db->cerrar();
     return $tot;
   }
-
 }
 
 ?>

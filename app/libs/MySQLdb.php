@@ -62,6 +62,7 @@ class MySQLdb{
     $r = mysqli_query($this->conn, $sql);
     return $r;
   }
+
   public function cerrar()
   {
     mysqli_close($this->conn);
