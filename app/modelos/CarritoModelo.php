@@ -78,8 +78,15 @@ class CarritoModelo{
   }
   public function ventas()
   {
-    $data = array();
-    return $data;
+    $sql = "SELECT SUM(p.precio*c.cantidad) as costo, ";
+    $sql.= "SUM(c.descuento) as descuento, ";
+    $sql.= "SUM(c.envio) as envio, ";
+    $sql.= "c.fecha as fecha, c.idUsuario as idUsuario ";
+    $sql.= "FROM carrito as c, productos as p ";
+    $sql.= "WHERE c.idProducto=p.id AND ";
+    $sql.= "c.estado=1 ";
+    $sql.= "GROUP BY DATE(c.fecha), c.idUsuario";
+    return $this->db->querySelect($sql);
   }
 
 }
