@@ -26,7 +26,26 @@
         title: "Ventas por día",
         subtitle: "Tienda virtual"
       },
-      colors: ["orange"]
+      colors: ["pink"],
+      fontSize: 25,
+      fontName: "Times",
+      bars: "horizontal",
+      height: 600,
+      hAxis: {
+        title: "Ventas MXN",
+        titleTextStyle: {color: 'blue', fontSize:30},
+        textPosition: "out",
+        textStyle: {color: "blue", fontSize:20, bold: true, italic:true}
+      },
+      vAxis: {
+        title: "Fecha",
+        titleTextStyle: {color: 'blue', fontSize:30},
+        textPosition: "out",
+        textStyle: {color: "blue", fontSize:20, bold: true, italic:true},
+        gridlines: {color: "gray"}
+      }, 
+      legend: {position: "none"},
+      titleTexttStyle: {color: "gray", fontSize: 40, italic:true}
     }
 
     var chart = new google.charts.Bar(document.getElementById("grafica"));
