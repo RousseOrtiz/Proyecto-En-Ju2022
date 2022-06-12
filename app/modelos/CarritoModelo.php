@@ -76,6 +76,11 @@ class CarritoModelo{
     $sql.= "estado=0";
     return $this->db->queryNoSelect($sql);
   }
+  public function ventas()
+  {
+    $data = array();
+    return $data;
+  }
 
 }
 ?>
