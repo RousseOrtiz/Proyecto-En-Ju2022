@@ -185,5 +185,19 @@ class Carrito extends Controladorbase{
     ];
     $this->vista("admonVentasDetalleVista",$datos);
   }
+  public function grafica()
+  {
+    //
+    $data = $this->modelo->ventasxdia();
+    //
+    $datos=[
+      "titulo" => "Ventas por dia",
+      "data" => $data,
+      "menu" => false,
+      "admon" => true
+    ];
+    $this->vista("admonVentasGraficaVista",$datos);
+  }
+
 }
 ?>
