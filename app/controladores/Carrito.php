@@ -159,5 +159,10 @@ class Carrito extends Controladorbase{
       $this->vista("mensajeVista",$datos);
     }
   }
+  public function ventas()
+  {
+    $data = $this->modelo->ventas();
+    var_dump($data);
+  }
 }
 ?>
