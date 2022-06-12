@@ -30,7 +30,7 @@
     </div>
     <div class="form-group text-left">
       <label for="enviar"></label>
-      <input type="submit" name="enviar" value="enviar" class="btn btn-success" role="button"/>
+      <input type="submit" name="enviar" value="Enviar" class="btn btn-success" role="button"/>
     </div>
   </form>
 </div>
