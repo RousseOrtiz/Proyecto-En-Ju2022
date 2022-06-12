@@ -107,7 +107,7 @@ class CarritoModelo{
     $sql.= "c.idUsuario=".$idUsuario;
     return $this->db->querySelect($sql);
   }
-/*
+
   public function ventasxdia()
   {
     $sql = "SELECT SUM(p.precio * c.cantidad) - ";
@@ -117,6 +117,6 @@ class CarritoModelo{
     $sql.= "WHERE c.idProducto=p.id AND c.estado=1 ";
     $sql.= "GROUP BY DATE(c.fecha)";
     return $this->db->querySelect($sql);
-  }*/
+  }
 }
 ?>
