@@ -13,7 +13,7 @@
 <body>
   <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
     <a class="navbar-brand" href="<?php print RUTA."tienda"; ?>" class="navbar-brand">
-      <img class="logo me-2 logo_img" class="" src="img/logo1.png" alt="RousseStore">
+      <img class="logo me-2 logo_img" src="img/logo1.png" height="50" width="60" alt="RousseStore">
     </a>
     <div class="collapse navbar-collapse" id="menu">
     <?php if ($datos["menu"]) {
