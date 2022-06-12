@@ -166,7 +166,8 @@ class Carrito extends Controladorbase{
     $datos=[
       "titulo" => "Ventas",
       "data" => $data,
-      "menu" => true
+      "menu" => false,
+      "admon"=> true
     ];
     $this->vista("admonVentasVista",$datos);
   }
