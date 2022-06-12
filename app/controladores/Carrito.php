@@ -162,7 +162,13 @@ class Carrito extends Controladorbase{
   public function ventas()
   {
     $data = $this->modelo->ventas();
-    var_dump($data);
+    //
+    $datos=[
+      "titulo" => "Ventas",
+      "data" => $data,
+      "menu" => true
+    ];
+    $this->vista("admonVentasVista",$datos);
   }
 }
 ?>
