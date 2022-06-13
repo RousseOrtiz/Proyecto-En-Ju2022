@@ -30,7 +30,7 @@
       fontSize: 25,
       fontName: "Times",
       bars: "horizontal",
-      height: 230,
+      height: 300,
       hAxis: {
         title: "Ventas MXN",
         titleTextStyle: {color: 'blue', fontSize:30},
